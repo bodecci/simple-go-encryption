@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 const originalLetter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -13,8 +16,18 @@ func main() {
 	fmt.Println("Decrypted text: ", decrypted)
 }
 
-func encrypt(key int, plainText string) (result string) {
+func hashLetterFn(key int, letter string) (result string) {
+	runes := []rune(letter)
+}
 
+func encrypt(key int, plainText string) (result string) {
+	hashLetter := hashLetterFn(key, originalLetter)
+	var hashedString = ""
+	findOne := func(r rune) rune {
+
+	}
+
+	strings.Map(findOne, plainText)
 }
 
 func decrypt(key int, encryptedText string) (result string) {
