@@ -18,6 +18,10 @@ func main() {
 
 func hashLetterFn(key int, letter string) (result string) {
 	runes := []rune(letter)
+	lastLetterKey := string(runes[len(letter)-key : len(letter)])
+	leftOversLetter := string(runes[0 : len(letter)-key])
+
+	return fmt.Sprintf(`%s%s`, lastLetterKey, leftOversLetter)
 }
 
 func encrypt(key int, plainText string) (result string) {
