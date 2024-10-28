@@ -41,5 +41,10 @@ func encrypt(key int, plainText string) (result string) {
 }
 
 func decrypt(key int, encryptedText string) (result string) {
+	hashLetter := hashLetterFn(key, originalLetter)
+	var hashedString = ""
+	findOne := func(r rune) rune {
+
+	}
 
 }
