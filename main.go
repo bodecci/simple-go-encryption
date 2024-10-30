@@ -44,7 +44,14 @@ func decrypt(key int, encryptedText string) (result string) {
 	hashLetter := hashLetterFn(key, originalLetter)
 	var hashedString = ""
 	findOne := func(r rune) rune {
-
+		pos := strings.Index(hashLetter, string([]rune{r}))
+		if pos != -1 {
+			letterPosition := (pos + len(originalLetter)) % len(originalLetter)
+			hashedString = hashedString + string(originalLetter[letterPosition])
+		}
+		return r
 	}
+	strings.Map(findOne, encryptedText)
+	return hashedString
 
 }
